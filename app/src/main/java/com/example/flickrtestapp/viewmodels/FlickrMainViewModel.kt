@@ -28,7 +28,7 @@ class FlickrMainViewModel @Inject constructor(private val flickrRepo: FlickrRepo
         _snackBar.value = null
     }
 
-    /*Called in the beginning, (after flickerdata set), api call made from here*/
+    /*Called in the beginning, (after flickerdata set), api call made from here, if this fails, data still available from DB*/
     init {
         loadItems()
     }
