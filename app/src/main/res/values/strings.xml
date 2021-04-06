@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FlickrTestApp</string>
+    <string name="photosTabText">Photos</string>
+    <string name="favTabText">Favourites</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/photosFragment"
+        android:icon="@drawable/bottom_photo_frag_selector"
+        android:title="@string/photosTabText" />
+    <item
+        android:id="@+id/favouritesFragment"
+        android:icon="@drawable/bottom_fav_frag_selector"
+        android:title="@string/favTabText" />
+</menu>
