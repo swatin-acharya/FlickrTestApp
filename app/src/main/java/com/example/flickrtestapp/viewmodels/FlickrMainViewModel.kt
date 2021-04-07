@@ -61,4 +61,5 @@ class FlickrMainViewModel @Inject constructor(private val flickrRepo: FlickrRepo
             flickrRepo.updateFavouriteValue(!flickrAppModel.isFavourite, flickrAppModel.id)
         }
     }
+
 }

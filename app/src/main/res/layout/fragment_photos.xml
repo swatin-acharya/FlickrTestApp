@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.example.flickrtestapp.viewmodels.FlickrMainViewModel" />
@@ -34,6 +36,7 @@
             android:id="@+id/spinner"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:visibility="@{viewModel.spinner ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

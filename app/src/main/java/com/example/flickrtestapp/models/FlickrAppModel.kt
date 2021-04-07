@@ -9,4 +9,6 @@ data class FlickrAppModel(@PrimaryKey val id: Long,
                           val title: String,
                           val ownername: String,
                           var isFavourite: Boolean = false,
-                          val url_m: String)
+                          val url_m: String,
+                          val width_m: Int,
+                          val height_m: Int)

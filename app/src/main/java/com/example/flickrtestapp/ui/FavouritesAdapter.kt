@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flickrtestapp.R
 import com.example.flickrtestapp.databinding.FavouritesListItemBinding
 import com.example.flickrtestapp.models.FlickrAppModel
 import com.example.flickrtestapp.viewmodels.FlickrMainViewModel
@@ -36,11 +35,6 @@ class FavouritesAdapter(private val flickrMainViewModel: FlickrMainViewModel) :
                 model = item
                 viewModel = flickrMainViewModel
                 executePendingBindings()
-            }
-            if (item.isFavourite) {
-                binding.favourite.setImageResource(R.drawable.ic_favourite_on)
-            } else {
-                binding.favourite.setImageResource(R.drawable.ic_favourite_off)
             }
         }
     }

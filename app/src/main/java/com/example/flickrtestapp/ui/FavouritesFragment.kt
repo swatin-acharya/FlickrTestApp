@@ -31,11 +31,6 @@ class FavouritesFragment: Fragment() {
         binding.photosFlickr.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.photosFlickr.setHasFixedSize(true)
 
-        /*Observe spinner livedata from viewmodel and show/hide accordingly*/
-        flickrMainViewModel.spinner.observe(viewLifecycleOwner) { show ->
-            binding.spinner.visibility = if (show) View.VISIBLE else View.GONE
-        }
-
         flickrMainViewModel.snackBar.observe(viewLifecycleOwner) { text ->
             text?.let {
                 makeSnackBar(binding.root, text)
