@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.flickrtestapp.databinding.FragmentFavouritesBinding
 import com.example.flickrtestapp.models.FlickrAppModel
 import com.example.flickrtestapp.viewmodels.FlickrMainViewModel
@@ -44,6 +45,7 @@ class FavouritesFragment: Fragment() {
         flickrMainViewModel.flickerData.observe(viewLifecycleOwner) {   photosListData ->
             populateList(photosListData)
         }
+        applyScrollListener()
         return binding.root
     }
 
@@ -55,6 +57,20 @@ class FavouritesFragment: Fragment() {
             if (onlyFavList.isEmpty()) {binding.empty.visibility = View.VISIBLE }
             else {binding.empty.visibility = View.GONE}
         }
+    }
+
+    private fun applyScrollListener() {
+        binding.photosFlickr.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                for (i in 0 until recyclerView.childCount) {
+                    val viewHolder = recyclerView.getChildViewHolder(recyclerView.getChildAt(i))
+                    if (viewHolder is FavouritesAdapter.FavouritesItemHolder) {
+                        viewHolder.animateImage()
+                    }
+                }
+            }
+        })
     }
 
     private fun makeSnackBar(rootView: View, message: String) {

@@ -1,5 +1,6 @@
 package com.example.flickrtestapp.ui
 
+import android.graphics.Matrix
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -35,6 +36,16 @@ class FavouritesAdapter(private val flickrMainViewModel: FlickrMainViewModel) :
                 model = item
                 viewModel = flickrMainViewModel
                 executePendingBindings()
+            }
+        }
+
+        fun animateImage() {
+            if(binding.ivArticleImage.drawable != null) {
+                val translate = -itemView.y * (binding.ivArticleImage.measuredHeight.toFloat() /
+                        (itemView.parent as RecyclerView).measuredHeight.toFloat())
+                val imageMatrix = Matrix()
+                imageMatrix.postTranslate(0F, translate)
+                binding.ivArticleImage.imageMatrix = imageMatrix
             }
         }
     }
